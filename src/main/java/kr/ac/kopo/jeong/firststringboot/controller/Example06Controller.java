@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,5 +31,24 @@ public class Example06Controller {
         modelMap.addAttribute("list", list);
 
         return "viewPageModelMap";
+    }
+
+    @GetMapping("/exam08")
+    public ModelAndView requestMethod3(ModelMap modelMap) {
+        ModelAndView modelView = new ModelAndView("viewPageModelAndView");
+    //    modelView.setViewName("viewPageModelAndView");
+        modelView.addObject("msg1", "ModelAndView 클래스 예제");
+        modelView.addObject("msg2", "ModelAndView 클래스는 View의 이름을 생성자 또는 메소드를 통해서 설정할 수 있다.");
+        modelView.addObject("msg3", "ModelAndView 클래스는 값이나 객체 참조값을 전달할 때 Model 또는 ModelMap과 사용하는 메소드와 다르다.");
+        modelView.addObject("msg4", "ModelAndView 클래스는 요청 메소드의 매개변수를 통해 사용하는 것이 아니라 객체 생성을 해서 사용해야하며, 리턴 값으로 ModelAndView객체의 참조값을 사용한다.");
+
+        List<String> flist = new ArrayList<>();
+        flist.add("Orange");
+        flist.add("Strawberry");
+        flist.add("Melon");
+
+        modelView.addObject("flist", flist);
+
+        return modelView;
     }
 }

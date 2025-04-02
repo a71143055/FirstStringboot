@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ModelAndView 사용 예제</title>
+</head>
+<body>
+    <h1>[[${msg1}]]</h1>
+    <h1>[[${msg2}]]</h1>
+    <p>[[${msg3}]]</p>
+    <p>[[${msg4}]]</p>
+    <ul>
+        <li th:each="item : ${flist}" th:text="${item}"></li>
+    </ul>
+</body>
+</html>
